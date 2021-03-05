@@ -8,6 +8,7 @@ class PhotoForm extends Component {
         super(props);
         this.state = {
             photoArray: [],
+            photoID: 0,
         }
     }
 
@@ -20,6 +21,12 @@ class PhotoForm extends Component {
         const apiData = await this._loadPhotos();
         this.setState({
             photoArray: apiData,
+        });
+    }
+
+    _handleClick = (photoId) => {
+        this.setState({
+            photoID: photoId,
         });
     }
 
@@ -36,7 +43,7 @@ class PhotoForm extends Component {
                                     <div key={photo.id}>
                                         <li>
                                             <Link to={`/photo/${photo.id}`}>
-                                                <PhotoListPhoto src={photo.download_url} alt={photo.author} ></PhotoListPhoto>
+                                                <PhotoListPhoto src={photo.download_url} alt={photo.author}></PhotoListPhoto>
                                             </Link>
                                         </li>
                                     </div>
@@ -48,8 +55,7 @@ class PhotoForm extends Component {
                     </ul>
                 </Route>
                 <Route path='/photo/:photoid'>
-                    <Photo>
-
+                    <Photo >
                     </Photo>
                 </Route>
             </>
