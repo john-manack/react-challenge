@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import Photo from './Photo';
+import './PhotoForm.css'
 import PhotoListPhoto from './Styles';
 
 class PhotoForm extends Component {
@@ -41,7 +42,7 @@ class PhotoForm extends Component {
                             photos.map( photo => {
                                 return (
                                     <div key={photo.id}>
-                                        <li>
+                                        <li >
                                             <Link to={`/photo/${photo.id}`}>
                                                 <PhotoListPhoto src={photo.download_url} alt={photo.author}></PhotoListPhoto>
                                             </Link>
